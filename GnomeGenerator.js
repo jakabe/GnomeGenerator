@@ -3,7 +3,7 @@ let inp;
 let inp_String;
 let numberOfGnomes=0;
 
-var x_position=40;
+var x_position=50;
 var y_position=50;
 
 
@@ -53,12 +53,12 @@ var title_Array = new Array
 //
 function setup()
 {
-    createCanvas(500,500);
+    createCanvas(1000,1000);
     background(128);
     //
     //inp = createInput('');
     //inp.input(myInputEvent);  
-    for( var i = 0 ; i < 28 ; i++ )
+    for( var i = 0 ; i < 80 ; i++ )
     {
         //console.log(`   Drawing Gnome ${i+1} of ${numberOfGnomes}`);
         drawRandomGnome();
@@ -107,9 +107,9 @@ function drawRandomGnome()
 {
     
     
-    if(x_position > 460)
+    if(x_position > 960)
     {
-        x_position = 40;
+        x_position = 50;
         y_position += 120;
     }
     
@@ -215,14 +215,14 @@ function drawRandomGnome()
         fill(255);
         stroke(0);
         strokeWeight(2);
-        textSize(8);
+        textSize(10);
         //name 
         textAlign(CENTER);
         text(nameTheGnome(), 0,30);
         strokeWeight(1);
 
     pop();
-    x_position += 70;
+    x_position += 100;
 }
 
 function nameTheGnome(){
