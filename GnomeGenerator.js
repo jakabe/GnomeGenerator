@@ -12,15 +12,17 @@ var y_position=50;
 
 var prefix_Array = new Array
 (
-    '','xXx-', 'Sir.', 'Dirty-', 'Dank-', 'Cash-', 'Money-', 'Sexy-',
-    'Filthy-', 'Banging', 'Silky-', 'Smooth-', 'Sleepy-'
-    ,'Na-', 'Old-'
+    'xXx-', 'Sir.', 'Dirty-', 'Dank-', 'Cash-', 'Money-', 'Sexy-',
+    'Filthy-', 'Banging-', 'Silky-', 'Smooth-', 'Sleepy-'
+    ,'Na-', 'Old-', 'Lord-'
 )
 var first_Name_Array = new Array
 (
     'Moe', 'Moen','SchmeK', 'Spaz', 'Garl','Gwen',
     'Gert', 'Gunt', 'Trude', "Tenct", "Pan", 'Paul','BUZZ',
-    'Charles', 'Moety', 'MMMP', 'Christina'
+    'Charles', 'Moety', 'MMMP', 'Christina',
+
+    
 
 
 
@@ -53,6 +55,45 @@ var title_Array = new Array
 //
 function setup()
 {
+    //adding names
+    var fns1="Mohamed, Youssef, Ahmed, Mahmoud, Mustafa, Yassin, Taha, Khaled, Hamza, Bilal, Ibrahim, Hassan, Hussein, Karim, Tareq, Abdel-Rahman, Ali, Omar, Halim, Murad, Selim, Abdallah, ";
+    addToFirstNameList(fns1);
+    fns1 = "Peter, Pierre, George, John, Mina, Beshoi, Kirollos, Mark, Fadi, Habib, "
+    addToFirstNameList(fns1);
+    fns1 = "Paulos, Petros, Gabreal, Giorgis, Yonas, Yonathan, Abraham, Ammanuel, Markos, Michael, Nahom, ";
+    addToFirstNameList(fns1);
+    fns1 = "Shaimaa, Fatma, Maha, Reem, Farida, Aya, Shahd, Ashraqat, Sahar, ";
+    addToFirstNameList(fns1);
+    fns1 = "Fatin, Dalal, Doha, Fajr, Suha, Rowan, Hosniya, Hasnaa, Hosna, Gamila, Gamalat, Habiba, ";
+    addToFirstNameList(fns1);
+    fns1 = "Mary, Marie, Mariam, Marina, Irene, Malak, Habiba, Hana, Farah, Marwa, Nada, Salma, ";
+    addToFirstNameList(fns1);
+    fns1 = "Mariamawit, Ruth, Mariam, Helen, Christina, Hanna, Naomie, Martha, Meron, Lidya, Eden, ";
+    addToFirstNameList(fns1);
+    fns1 = "Santiago, Mateo, Juan, Matías, Nicolás, Benjamín, Pedro, Tomás, Thiago, Santino, ";
+    addToFirstNameList(fns1);
+    fns1 = "Daniel, Dylan, Dyllan, Kevin, Keven, ";
+    addToFirstNameList(fns1);
+    fns1 = "Enzo, Gabriel, João Miguel, Pedro Henrique, Miguel Arthur, ";
+    addToFirstNameList(fns1);
+    //canada
+    fns1 = "Noah, Liam, Jackson, Lucas, Logan, Benjamin, Jacob, William, Oliver, James, ";
+    addToFirstNameList(fns1);
+    fns1 = "Olivia, Emma, Charlotte, Sophia, Aria, Ava, Chloe, Zoey, Abigail, Amilia, Lynnea, ";
+    
+    //
+    fns1 = "Abbess, Abbot, Admiral of the Fleet, Agha, Aesymnetes, Agonothetes, Air Marshal, Aircraftman, Alderman, Allamah, Amban, Amir al-Mu'minin, Amphipole, Anax, Apostle, Arahant, Archbishop, Archdeacon, Archimandrite, ";
+    addToTitlesList(fns1);
+    fns1 = "Beauty, Bishop, Blessed, Begum, Buddha, Cardinal, Caesar, Caliph, Captain, Centurion, Chairman, Chakravartin, Chancellor, Chanyu, Chief, Chieftain, Chiliarch, Comes, Concubinus, Karo, Khan, Jadirdar, Imperator, God King, Lady of His Majesty, Lecturer, ";
+    addToTitlesList(fns1);
+    fns1 = "Dame, Dathapatich, Dean, Despot, Dilochites, Dikastes, Dimoirites, Doctor, ";
+    addToTitlesList(fns1);
+    fns1 = "Ephor, Spihipparch, Esquire, Evangelist, Exarch, Faqih, Fellow, Fidalgo, Gong, Goodman, Goodwife, Grand Inquisitor, Inquisitor, Prince, Guardian, Immortal, Hadrat, Handsome, Fair, Headman, Serene, Hieromonk, Hierophant, High Priest, Imam, ";
+    addToTitlesList(fns1);
+    //adding titles
+
+    //
+    
     createCanvas(1000,1000);
     background(128);
     //
@@ -63,6 +104,7 @@ function setup()
         //console.log(`   Drawing Gnome ${i+1} of ${numberOfGnomes}`);
         drawRandomGnome();
     } 
+    
 }
 
 //
@@ -228,18 +270,99 @@ function drawRandomGnome()
 function nameTheGnome(){
     var gnome_Name ="";
 
-    gnome_Name += prefix_Array[Math.round(random(0,prefix_Array.length-1))];
+    if(random(0,1)<0.5)
+    {
+        gnome_Name += prefix_Array[Math.round(random(0,prefix_Array.length-1))];
+    }
+    
+    var fnp = Math.round(random(0,first_Name_Array.length-1));
+    var fn = first_Name_Array[fnp];
 
-    gnome_Name += first_Name_Array[Math.round(random(0,first_Name_Array.length-1))];
-
-    gnome_Name += suffix_Array[Math.round(random(0,suffix_Array.length-1))];
+    gnome_Name += fn;
+    // now remove name from array
+    first_Name_Array.splice(fnp,1);
+    //gnome_Name += suffix_Array[Math.round(random(0,suffix_Array.length-1))];
 
     gnome_Name +="\n";
 
     gnome_Name += last_Name_Araay[Math.round(random(0,last_Name_Araay.length-1))];
     
-    gnome_Name +="\n";
+    if(random(0,1)<0.5)
+    {
+        gnome_Name +="\n";
 
-    gnome_Name += ' The \n'+title_Array[Math.round(random(0,title_Array.length-1))];
+        var tp = Math.round(random(0,title_Array.length-1));
+        var t = title_Array[tp];
+
+        gnome_Name += ' The \n'+ t;
+        //now remove title from array
+        title_Array.splice(tp,1);
+    }
+    
+
     return gnome_Name; 
+}
+
+function addToFirstNameList(n1)
+{
+    //var n1 = "Mohamed, Youssef, Ahmed, Mahmoud, Mustafa, Yassin, Taha, Khaled, Hamza, Bilal, Ibrahim, Hassan, Hussein, Karim, Tareq, Abdel-Rahman, Ali, Omar, Halim, Murad, Selim, Abdallah, ";
+    var nl = n1.length;
+    var cIndex = n1.indexOf(',');
+    //console.log(cIndex);
+    //console.log("String length is "+nl);
+    for( var i = 0 ; i < nl ; i++)
+    {
+        var tempName = n1.slice(0,n1.indexOf(','));
+        //console.log("tempName is ["+tempName+"]");
+        
+
+        n1 = n1.replace(tempName+', ', "");
+        ///console.log(i+":String is now {"+n1+"}");
+        if(n1 == tempName || n1 == "" ){
+            //console.log("break at "+i);
+            break;
+        } else {
+            //console.log("End of string not found at "+i);
+        }
+        first_Name_Array.push(tempName);
+    }
+
+    for(var i = 0 ; i < first_Name_Array.length ; i++)
+    {
+        //console.log(first_Name_Array[i]);
+    }
+
+    //console.log("!"+n1+"!");
+}
+
+function addToTitlesList(n1)
+{
+    //var n1 = "Mohamed, Youssef, Ahmed, Mahmoud, Mustafa, Yassin, Taha, Khaled, Hamza, Bilal, Ibrahim, Hassan, Hussein, Karim, Tareq, Abdel-Rahman, Ali, Omar, Halim, Murad, Selim, Abdallah, ";
+    var nl = n1.length;
+    var cIndex = n1.indexOf(',');
+    //console.log(cIndex);
+    //console.log("String length is "+nl);
+    for( var i = 0 ; i < nl ; i++)
+    {
+        var tempTitle = n1.slice(0,n1.indexOf(','));
+        //console.log("tempTitle is ["+tempTitle+"]");
+        
+
+        n1 = n1.replace(tempTitle+', ', "");
+        //console.log(i+":String is now {"+n1+"}");
+        if(n1 == tempTitle || n1 == "" ){
+            console.log("break at "+i);
+            break;
+        } else {
+            //console.log("End of string not found at "+i);
+        }
+       title_Array.push(tempTitle);
+    }
+
+    for(var i = 0 ; i < title_Array.length ; i++)
+    {
+        //console.log(title_Array[i]);
+    }
+
+    //console.log("! "+n1+" !");
 }
